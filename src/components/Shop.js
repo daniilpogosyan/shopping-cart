@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import ShopList from './ShopList';
+import Sidebar from './Sidebar';
+import Cart from './Cart';
 
 export default function Shop(props) {
   const [cart, setCart] = useState([]);
@@ -34,9 +36,14 @@ export default function Shop(props) {
   }
 
   return (
-    <ShopList
-      items={shopData.items}
-      onAddItem={handleItemAddButtonClick}
-    />
+    <>
+      <ShopList
+        items={shopData.items}
+        onAddItem={handleItemAddButtonClick}
+      />
+      <Sidebar togglerText="🛒 My Cart">
+        <Cart items={cart} />
+      </Sidebar>
+    </>
   )
 }
