@@ -17,6 +17,7 @@ export default function Shop(props) {
       const AddedItem = cart.find((item) => item.id === itemId);
       const newCart = cart.filter((item) => item.id !== itemId);
       newCart.push({
+        name: AddedItem.name,
         id: AddedItem.id,
         amount: AddedItem.amount + 1
       });
@@ -25,8 +26,10 @@ export default function Shop(props) {
       return
     }
 
+    const shopItem = shopData.items.find((item) => item.id === itemId);
     setCart([...cart, {
-      id: itemId,
+      name: shopItem.name,
+      id: shopItem.id,
       amount: 1
     }]);
   }
