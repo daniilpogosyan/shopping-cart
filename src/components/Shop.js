@@ -1,7 +1,42 @@
+import { useState, useEffect } from 'react';
+import ShopList from './ShopList';
+
 export default function Shop(props) {
+  const [cart, setCart] = useState([]);
+  const [shopData, setShopData] = useState({items: []});
+
+  useEffect(() => {
+    setShopData(require('../data/items.json'))
+  }, []);
+
+  const addToCart = (itemId) => {
+    const inCartAlready = cart.some((item) => item.id === itemId);
+    if (inCartAlready) {
+      const AddedItem = cart.find((item) => item.id === itemId);
+      const newCart = cart.filter((item) => item.id !== itemId);
+      newCart.push({
+        id: AddedItem.id,
+        amount: AddedItem.amount + 1
+      });
+
+      setCart(newCart);
+      return
+    }
+
+    setCart([...cart, {
+      id: itemId,
+      amount: 1
+    }]);
+  }
+
+  const handleItemAddButtonClick = (e, id) => {
+    addToCart(id);
+  }
+
   return (
-    <div>
-      shop
-    </div>
+    <ShopList
+      items={shopData.items}
+      onAddItem={handleItemAddButtonClick}
+    />
   )
 }
