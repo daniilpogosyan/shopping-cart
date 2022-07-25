@@ -1,4 +1,5 @@
 import ItemCard from './ItemCard';
+import './style/ShopList.css';
 
 export default function ShopList(props) {
   const handleAddItem = (e, id) => {
@@ -6,9 +7,9 @@ export default function ShopList(props) {
   }
 
   return (
-    <ul>
+    <ul className='shop-list'>
       {props.items.map((item) => (
-        <li key={item.id}>
+        <li className='shop-list__item' key={item.id}>
           <ItemCard
             imgUrl={item.imgUrl}
             name={item.name}
