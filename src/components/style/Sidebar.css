@@ -1,5 +1,6 @@
 .sidebar {
-  border: 5px solid #f00;
+  border: 5px solid #05aa8e;
+  border-right-width: 0;
   position: fixed;
   right: 0;
   top: 0;
@@ -9,17 +10,22 @@
 }
 
 .sidebar__toggler {
-  --width: 80px;
+  --width: 100px;
   position: absolute;
   top: min(20% ,400px);
   left: calc(var(--width) * -1);
   width: var(--width);
-  border: 1px solid #0f0;
-  background-color: #fff;
+  padding: 0.1em 0.2em;
+  border-radius: 10px 0 0 10px;
+  background-color: #04d074;
+  border: 5px solid #05aa8e;
+  border-right-width: 0;
+  color: #fff;
+  cursor: pointer;
 }
 
 .sidebar__content {
   height: 100%;
-  border: 3px solid #00f;
+  /* border: 3px solid #00f; */
   overflow: auto;
 }
