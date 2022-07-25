@@ -1,0 +1,25 @@
+.sidebar {
+  border: 5px solid #f00;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.sidebar__toggler {
+  --width: 80px;
+  position: absolute;
+  top: min(20% ,400px);
+  left: calc(var(--width) * -1);
+  width: var(--width);
+  border: 1px solid #0f0;
+  background-color: #fff;
+}
+
+.sidebar__content {
+  height: 100%;
+  border: 3px solid #00f;
+  overflow: auto;
+}
