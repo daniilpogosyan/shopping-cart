@@ -1,3 +1,5 @@
+import './style/ItemCard.css';
+
 export default function ItemCard(props) {
   const handleAddButtonClick = () => {
     props.onAdd();
@@ -5,22 +7,24 @@ export default function ItemCard(props) {
 
   return (
     <article className="item-card">
+      <p className="item-card__price">
+        {props.price}
+      </p>
       <img 
         className="item-card__img"
         src={props.imgUrl} alt={props.title}
       />
-      <p className="item-card__price">
-        {props.price}
-      </p>
-      <p className="item-card__title">
-        {props.name}
-      </p>
-      <button
-        className="item-card__btn"
-        onClick={handleAddButtonClick}
-      > 
-        Add to cart
-      </button>
+      <div className="card__bottom">
+        <p className="item-card__title">
+          {props.name}
+        </p>
+        <button
+          className="item-card__btn"
+          onClick={handleAddButtonClick}
+        > 
+          Add to cart
+        </button>
+      </div>
     </article>
   )
 }
