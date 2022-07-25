@@ -1,0 +1,29 @@
+/* .home {
+
+} */
+
+.home__main {
+  margin: 20px 10%;
+  display: flex;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.home__hero {
+  max-height: 100%;
+  max-width: 100%;
+  float: right;
+}
+
+.home__main-text {
+  max-width: 600px
+}
+
+.home__call-to-action {
+  text-align: center;
+}
+
