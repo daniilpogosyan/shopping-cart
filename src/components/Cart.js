@@ -1,6 +1,6 @@
 import CartItem from './CartItem';
 
-export default function Cart({items}) {
+export default function Cart({items, ...props}) {
   return (
     <ul className="cart">
         {items.length > 0
@@ -9,6 +9,7 @@ export default function Cart({items}) {
             <CartItem
               name={item.name}
               amount={item.amount}
+              onRemove={(e) => props.onRemoveItem(e, item.id)}
             />
           </li>
         ))

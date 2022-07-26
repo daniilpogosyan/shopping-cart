@@ -34,8 +34,17 @@ export default function Shop(props) {
     }]);
   }
 
+  const removeFromCart = (itemId) => {
+    const newCart = cart.filter((item) => item.id !== itemId);
+    setCart(newCart);
+  }
+
   const handleItemAddButtonClick = (e, id) => {
     addToCart(id);
+  }
+
+  const handleRemoveItemClick = (e, id) => {
+    removeFromCart(id);
   }
 
   return (
@@ -45,7 +54,10 @@ export default function Shop(props) {
         onAddItem={handleItemAddButtonClick}
       />
       <Sidebar togglerText="🛒 My Cart">
-        <Cart items={cart} />
+        <Cart
+          items={cart}
+          onRemoveItem={handleRemoveItemClick}
+        />
       </Sidebar>
     </>
   )
