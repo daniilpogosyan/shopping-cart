@@ -19,7 +19,7 @@ export default function Shop(props) {
       newCart.push({
         name: AddedItem.name,
         id: AddedItem.id,
-        amount: AddedItem.amount + 1
+        amount: +AddedItem.amount + 1
       });
 
       setCart(newCart);
