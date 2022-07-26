@@ -33,7 +33,7 @@ export default function Shop(props) {
       amount: 1
     }]);
   }
-
+  
   const removeFromCart = (itemId) => {
     const newCart = cart.filter((item) => item.id !== itemId);
     setCart(newCart);
@@ -42,9 +42,18 @@ export default function Shop(props) {
   const handleItemAddButtonClick = (e, id) => {
     addToCart(id);
   }
-
+  
   const handleRemoveItemClick = (e, id) => {
     removeFromCart(id);
+  }
+
+  const handleItemAmountChange = (e, id) => {
+    const editedItem = {...cart.find((item) => item.id === id)};
+    editedItem.amount = e.target.value;
+    const newCart = cart.filter((item) => item.id !== id);
+    newCart.push(editedItem);
+    setCart(newCart);
+    console.log(editedItem)
   }
 
   return (
@@ -57,6 +66,7 @@ export default function Shop(props) {
         <Cart
           items={cart}
           onRemoveItem={handleRemoveItemClick}
+          onItemAmountChange={handleItemAmountChange}
         />
       </Sidebar>
     </>

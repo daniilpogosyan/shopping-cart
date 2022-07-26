@@ -10,6 +10,7 @@ export default function Cart({items, ...props}) {
               name={item.name}
               amount={item.amount}
               onRemove={(e) => props.onRemoveItem(e, item.id)}
+              onAmountChange={(e) => props.onItemAmountChange(e, item.id)}
             />
           </li>
         ))
